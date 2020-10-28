@@ -13,7 +13,9 @@ import java.util.Collections;
 
 import static com.codurance.dip.EmployeeBuilder.anEmployee;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.mock;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BirthdayGreeterShould {
@@ -26,13 +28,17 @@ public class BirthdayGreeterShould {
     @Mock
     private Clock clock;
 
-    @InjectMocks
-    private BirthdayGreeter birthdayGreeter;
-
     private ByteArrayOutputStream consoleContent = new ByteArrayOutputStream();
 
     @Test
     public void should_send_greeting_email_to_employee() {
+        EmailSender emailSender = new EmailSender();
+        BirthdayGreeter birthdayGreeter = new BirthdayGreeter(
+                employeeRepository,
+                clock,
+                emailSender
+        );
+
         System.setOut(new PrintStream(consoleContent));
         given(clock.monthDay()).willReturn(TODAY);
         Employee employee = anEmployee().build();
