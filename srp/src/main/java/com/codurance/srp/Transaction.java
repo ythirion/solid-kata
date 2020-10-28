@@ -3,8 +3,8 @@ package com.codurance.srp;
 import java.time.LocalDate;
 
 public class Transaction {
-    private LocalDate date;
-    private int amount;
+    private final LocalDate date;
+    private final int amount;
 
     Transaction(LocalDate date, int amount) {
         this.date = date;

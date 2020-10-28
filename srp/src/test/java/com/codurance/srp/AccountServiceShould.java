@@ -38,11 +38,13 @@ public class AccountServiceShould {
     @Mock
     private Console console;
 
+    private StatementPrinter statementPrinter;
     private AccountService accountService;
 
     @Before
     public void setUp() {
-        accountService = new AccountService(transactionRepository, clock, console);
+        statementPrinter = new StatementPrinter(console);
+        accountService = new AccountService(transactionRepository, statementPrinter, clock);
         given(clock.today()).willReturn(TODAY);
     }
 
