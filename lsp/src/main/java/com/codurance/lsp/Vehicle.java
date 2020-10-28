@@ -17,9 +17,4 @@ public abstract class Vehicle {
         this.engineStarted = false;
     }
 
-    public abstract void fillUpWithFuel();
-
-    public abstract void chargeBattery();
-
-
 }

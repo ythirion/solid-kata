@@ -15,7 +15,7 @@ public class BirthdayGreeter {
         MonthDay today = clock.monthDay();
         employeeRepository.findEmployeesBornOn(today)
                 .stream()
-                .map(employee -> emailFor(employee))
+                .map(this::emailFor)
                 .forEach(email -> new EmailSender().send(email));
     }
 

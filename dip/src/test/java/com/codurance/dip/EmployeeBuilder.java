@@ -3,7 +3,6 @@ package com.codurance.dip;
 import java.time.LocalDate;
 
 public class EmployeeBuilder {
-
     private String firstName = "John";
     private String lastName = "Doe";
     private LocalDate dateOfBirth = LocalDate.of(1980, 9, 10);
@@ -22,7 +21,6 @@ public class EmployeeBuilder {
         this.firstName = firstName;
         return this;
     }
-
 
     public EmployeeBuilder withLastName(String lastName) {
         this.lastName = lastName;
