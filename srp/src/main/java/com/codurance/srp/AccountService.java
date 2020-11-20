@@ -32,10 +32,6 @@ public class AccountService {
         statementPrinter.print(transactionRepository.all());
     }
 
-    private void printTransactions() {
-
-    }
-
     private Transaction transactionWith(int amount) {
         return new Transaction(clock.today(), amount);
     }
