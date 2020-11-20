@@ -6,7 +6,7 @@ public class FillingStation {
         petrolCar.fillUpWithFuel();
     }
 
-    public void charge(ElectricityPowered vehicle) {
-        vehicle.chargeBattery();
+    public void charge(ElectricCar electricCar) {
+        electricCar.chargeBattery();
     }
 }
