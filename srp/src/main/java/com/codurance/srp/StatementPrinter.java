@@ -24,7 +24,10 @@ public class StatementPrinter {
     }
 
     private String statementLine(Transaction transaction, int balance) {
-        return MessageFormat.format("{0} | {1} | {2}", formatDate(transaction.date()), formatNumber(transaction.amount()), formatNumber(balance));
+        return MessageFormat.format("{0} | {1} | {2}",
+                formatDate(transaction.getDate()),
+                formatNumber(transaction.getAmount()),
+                formatNumber(balance));
     }
 
     private String formatDate(LocalDate date) {
@@ -50,7 +53,7 @@ public class StatementPrinter {
 
         final AtomicInteger balance = new AtomicInteger(0);
         transactions.stream()
-                .map(transaction -> statementLine(transaction, balance.addAndGet(transaction.amount())))
+                .map(transaction -> statementLine(transaction, balance.addAndGet(transaction.getAmount())))
                 .collect(toCollection(LinkedList::new))
                 .descendingIterator()
                 .forEachRemaining(this::printLine);

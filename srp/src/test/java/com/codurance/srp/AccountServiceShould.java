@@ -24,9 +24,9 @@ public class AccountServiceShould {
     private static final int NEGATIVE_AMOUNT = -POSITIVE_AMOUNT;
     private static final LocalDate TODAY = LocalDate.of(2017, 9, 6);
     private static final List<Transaction> TRANSACTIONS = Arrays.asList(
-        new Transaction(LocalDate.of(2014, 4, 1), 1000),
-        new Transaction(LocalDate.of(2014, 4, 2), -100),
-        new Transaction(LocalDate.of(2014, 4, 10), 500)
+            new Transaction(LocalDate.of(2014, 4, 1), 1000),
+            new Transaction(LocalDate.of(2014, 4, 2), -100),
+            new Transaction(LocalDate.of(2014, 4, 10), 500)
     );
 
     @Mock
@@ -38,12 +38,11 @@ public class AccountServiceShould {
     @Mock
     private Console console;
 
-    private StatementPrinter statementPrinter;
     private AccountService accountService;
 
     @Before
     public void setUp() {
-        statementPrinter = new StatementPrinter(console);
+        StatementPrinter statementPrinter = new StatementPrinter(console);
         accountService = new AccountService(transactionRepository, statementPrinter, clock);
         given(clock.today()).willReturn(TODAY);
     }
