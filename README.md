@@ -149,4 +149,6 @@ public class BirthdayGreeter {
 * Inject the `EmailSender`
   * Ask question about how to do it : method, constructor, property
 * Impact on the tests ?
+    * No more need to check stdout
+    * Check call to `EmailSender` only
 * Demo of Lombok builder for emails
