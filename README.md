@@ -149,3 +149,4 @@ public class BirthdayGreeter {
 * Inject the `EmailSender`
   * Ask question about how to do it : method, constructor, property
 * Impact on the tests ?
+* Demo of Lombok builder for emails
